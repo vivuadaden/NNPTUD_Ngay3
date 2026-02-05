@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Product Dashboard</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body { background: #f5f7fa; }
+
+.dashboard-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.product-img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+th.sortable {
+    cursor: pointer;
+    user-select: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container mt-5">
+<div class="card dashboard-card p-4">
+
+<h3 class="mb-3">📊 Product Dashboard</h3>
+
+<div class="row mb-3">
+    <div class="col-md-6">
+        <input id="searchBox" class="form-control"
+               placeholder="Search by title...">
+    </div>
+
+    <div class="col-md-3">
+        <select id="pageSize" class="form-select">
+            <option value="5">5 / page</option>
+            <option value="10" selected>10 / page</option>
+            <option value="20">20 / page</option>
+        </select>
+    </div>
+</div>
+
+<table class="table table-hover align-middle">
+<thead class="table-dark">
+<tr>
+<th>ID</th>
+<th class="sortable" onclick="sortByTitle()">Title ⬍</th>
+<th class="sortable" onclick="sortByPrice()">Price ⬍</th>
+<th>Category</th>
+<th>Image</th>
+</tr>
+</thead>
+
+<tbody id="productTable"></tbody>
+</table>
+
+<nav>
+<ul class="pagination justify-content-center" id="pagination"></ul>
+</nav>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="dashboard.js"></script>
+
+</body>
+</html>
